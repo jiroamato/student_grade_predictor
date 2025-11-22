@@ -1,6 +1,7 @@
 name: student_grade_predictor
 channels:
   - conda-forge
+  - defaults
 dependencies:
   - ipykernel
   - vegafusion
