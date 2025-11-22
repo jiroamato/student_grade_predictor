@@ -14,7 +14,7 @@ The final report can be found in the notebooks folder.
 
 ## Usage
 
-#### Initial Setup (One-time)
+#### Initial Setup (one-time)
 
 1.  Clone the repository and navigate to the project root directory
 2.  Create the conda environment:
@@ -43,12 +43,10 @@ jupyter lab
 
 ## Dependencies
 
--   vegafusion
--   altair
--   scikit-learn
--   pandas
--   notebook
--   jupyter
+-   `conda` (version 23.9.0 or higher)
+-   `jupyterlab` (version 4.0.0 or higher)
+-   `nb_conda_kernels` (version 2.3.1 or higher)
+-   Python and packages listed in [`environment.yml`](environment.yml)
 
 ## License
 
