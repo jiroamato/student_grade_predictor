@@ -13,10 +13,10 @@
 version: 1
 metadata:
   content_hash:
-    linux-64: b75d1f5d90b5277a76edce3a490ae0817c43a739503ff77f7c6bfc68b95982ca
-    osx-arm64: 3a0aeda3864f967618a0d738390417d4f3f1af5ac2deb8d9c7bb3cccc480a11a
-    osx-64: 28386d247d1accccccd3b4a1837661677035455d1dc8f4dca5e51d95142fcd60
-    win-64: 71c5a066a9b4cea38908398fbcd75ba7eeefbba669c5c80f0a77e74a222a5b37
+    linux-64: 27a79b94573773e18da3728376efe5cc8b29a357f4db1b6fb1d96aa6faea285f
+    osx-arm64: 4f4895114b0dff7295905e0cd540c6847ada27bf758e4a9264da92d3f569341d
+    osx-64: 0693ccce594da87216b3bbe517196ce195222d7db8a3a28e32e5c9450c5cc302
+    win-64: 76a322c992670051b36b546df48ef1e658f8e5cafcd8856ca781fa9fe3b41b88
   channels:
   - url: conda-forge
     used_env_vars: []
@@ -22664,6 +22664,46 @@ package:
   url: https://files.pythonhosted.org/packages/03/00/0af76dc221eb34f0d98af54024955ddc16080057a69d4c19329811aabc03/PyNomaly-0.3.4-py3-none-any.whl
   hash:
     sha256: e653f1e1c9a70c92170829f7440841e3b004528e1a1bfaea5e830e53fca26822
+  category: main
+  optional: false
+- name: python-json-logger
+  version: 4.0.0
+  manager: pip
+  platform: linux-64
+  dependencies: {}
+  url: https://files.pythonhosted.org/packages/51/e5/fecf13f06e5e5f67e8837d777d1bc43fac0ed2b77a676804df5c34744727/python_json_logger-4.0.0-py3-none-any.whl
+  hash:
+    sha256: af09c9daf6a813aa4cc7180395f50f2a9e5fa056034c9953aec92e381c5ba1e2
+  category: main
+  optional: false
+- name: python-json-logger
+  version: 4.0.0
+  manager: pip
+  platform: osx-64
+  dependencies: {}
+  url: https://files.pythonhosted.org/packages/51/e5/fecf13f06e5e5f67e8837d777d1bc43fac0ed2b77a676804df5c34744727/python_json_logger-4.0.0-py3-none-any.whl
+  hash:
+    sha256: af09c9daf6a813aa4cc7180395f50f2a9e5fa056034c9953aec92e381c5ba1e2
+  category: main
+  optional: false
+- name: python-json-logger
+  version: 4.0.0
+  manager: pip
+  platform: osx-arm64
+  dependencies: {}
+  url: https://files.pythonhosted.org/packages/51/e5/fecf13f06e5e5f67e8837d777d1bc43fac0ed2b77a676804df5c34744727/python_json_logger-4.0.0-py3-none-any.whl
+  hash:
+    sha256: af09c9daf6a813aa4cc7180395f50f2a9e5fa056034c9953aec92e381c5ba1e2
+  category: main
+  optional: false
+- name: python-json-logger
+  version: 4.0.0
+  manager: pip
+  platform: win-64
+  dependencies: {}
+  url: https://files.pythonhosted.org/packages/51/e5/fecf13f06e5e5f67e8837d777d1bc43fac0ed2b77a676804df5c34744727/python_json_logger-4.0.0-py3-none-any.whl
+  hash:
+    sha256: af09c9daf6a813aa4cc7180395f50f2a9e5fa056034c9953aec92e381c5ba1e2
   category: main
   optional: false
 - name: python-utils
