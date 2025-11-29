@@ -51,10 +51,10 @@ docker compose up
 docker compose down
 ```
 
-5. To remove the image that was pulled locally, run the following command (optional):
+5. To remove the image that was pulled locally, note the image name and tag from `docker-compose.yml` and run the following command:
 
 ```bash
-docker rmi jiroamato/student_grade_predictor:tag
+docker rmi <image_name:tag>
 ```
 
 #### For Returning Users

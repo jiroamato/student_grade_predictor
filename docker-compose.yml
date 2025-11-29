@@ -1,6 +1,6 @@
 services:
   student-grade-predictor-env:
-    image: jiroamato/student_grade_predictor:latest
+    image: jiroamato/student_grade_predictor:5aa81a9
     ports:
       - "8888:8888"
     volumes:
