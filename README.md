@@ -41,7 +41,7 @@ docker compose up
 
 2.  Open the JupyterLab URL displayed in the terminal (starts with `http://127.0.0.1:8888/lab?token=...`)
 
-<img src="img/jupyter-container-link.png" height=200 width=400>
+<img src="img/jupyter-container-link.png" height=300 width=600>
 
 3.  To run the analysis, navigate to `notebooks/` and open `student_grade_predictor_report.ipynb` in the JupyterLab launched from previous step. In the `Kernel` tab, click `Restart Kernel and Run All Cells...`.
 
