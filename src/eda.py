@@ -1,8 +1,3 @@
-```bash
-touch src/eda.py
-```
-
-```python
 import click
 import os
 import altair as alt
@@ -44,4 +39,3 @@ def main(processed_training_data, plot_to):
 
 if __name__ == '__main__':
     main()
-```
