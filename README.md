@@ -122,18 +122,17 @@ docker compose up
 
 If you modify `environment.yml`:
 
-1.  Regenerate the lock files:
+1.  Regenerate the conda-lock file:
 
 ``` bash
-conda-lock lock -f environment.yml # general conda-lock file
-conda-lock lock -f environment.yml -k explicit # platform specific
+conda-lock lock -f environment.yml
 ```
 
 2.  Push the changes into your own branch and GitHub Actions workflow will automatically build and push the new image:
 
 ``` bash
-git add conda-linux-64.lock conda-lock.yml
-git commit -m "Update conda-linux-64.lock and conda-lock.yml files"
+git add conda-lock.yml
+git commit -m "Update conda-lock.yml file"
 git push origin <branch_name>
 ```
 
