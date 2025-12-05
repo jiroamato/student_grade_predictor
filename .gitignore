@@ -218,3 +218,5 @@ tests/__pycache__
 .quarto/
 /.quarto/
 **/*.quarto_ipynb
+
+.DS_Store
