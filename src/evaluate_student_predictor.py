@@ -48,7 +48,7 @@ def main(test_data, pipeline_from, tables_to, plot_to, seed):
     set_config(transform_output="pandas")
 
     # Read in data & pipeline object
-    print(f"Loading test data from {test_data}...")
+    print(f"\nLoading test data from {test_data}...")
     student_test = pd.read_csv(test_data)
 
     print(f"Loading pipeline from {pipeline_from}...")
@@ -58,6 +58,8 @@ def main(test_data, pipeline_from, tables_to, plot_to, seed):
     # Separate features and target
     X_test = student_test.drop(columns=[TARGET])
     y_test = student_test[TARGET]
+
+    print("\nResults:")
 
     print(f"Test set: {len(X_test)} samples")
 
@@ -81,7 +83,7 @@ def main(test_data, pipeline_from, tables_to, plot_to, seed):
         'R2': [r2]
     })
     test_scores.to_csv(os.path.join(tables_to, "test_scores.csv"), index=False)
-    print(f"Saved test scores to {tables_to}/test_scores.csv")
+    print(f"\nSaved test scores to {tables_to}/test_scores.csv")
 
     # Extract and save top 5 ridge coefficients
     # Get transformed feature names by applying preprocessing steps
@@ -114,7 +116,7 @@ def main(test_data, pipeline_from, tables_to, plot_to, seed):
     plt.close()
     print(f"Saved prediction error plot to {plot_to}/prediction_error.png")
 
-    print("Model evaluation complete!")
+    print("\nModel evaluation complete!")
 
 
 if __name__ == '__main__':

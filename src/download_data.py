@@ -90,7 +90,7 @@ def main(url, write_to):
     except ValueError:
         os.makedirs(write_to)
         read_zip(url, write_to)
-    print("Data download and extraction complete!")
+    print("\nData download and extraction complete!")
 
 
 if __name__ == '__main__':

@@ -1,5 +1,9 @@
-import click
 import os
+import warnings
+os.environ["PYTHONWARNINGS"] = "ignore"
+warnings.filterwarnings('ignore')
+
+import click
 import altair as alt
 import numpy as np
 import pandas as pd
@@ -11,8 +15,6 @@ from sklearn.linear_model import Ridge
 from sklearn.pipeline import make_pipeline
 from sklearn.model_selection import RandomizedSearchCV
 from scipy.stats import loguniform
-import warnings
-warnings.filterwarnings("ignore", category=FutureWarning, module="deepchecks")
 
 TARGET = "G3"
 
@@ -54,12 +56,12 @@ def main(training_data, preprocessor, pipeline_to, plot_to, seed):
     set_config(transform_output="pandas")
 
     # Read in data & preprocessor
-    print(f"Loading training data from {training_data}...")
+    print(f"\nLoading training data from {training_data}...")
     student_train = pd.read_csv(training_data)
     student_preprocessor = pickle.load(open(preprocessor, "rb"))
 
     # Validate training data for anomalous correlations
-    print("Validating data for anomalous correlations...")
+    print("\nValidating data for anomalous correlations...")
     student_train_ds = Dataset(student_train, label=TARGET, cat_features=[])
 
     check_feat_lab_corr = FeatureLabelCorrelation().add_condition_feature_pps_less_than(0.9)
@@ -77,7 +79,7 @@ def main(training_data, preprocessor, pipeline_to, plot_to, seed):
     print("Correlation checks passed!")
 
     # Tune model (find optimal alpha for Ridge using cross-validation)
-    print("Tuning Ridge hyperparameters...")
+    print("\nTuning Ridge hyperparameters...")
     ridge = Ridge()
     student_tune_pipe = make_pipeline(student_preprocessor, ridge)
 
@@ -105,6 +107,8 @@ def main(training_data, preprocessor, pipeline_to, plot_to, seed):
     best_score = -student_fit.best_score_
     print(f"Best alpha: {best_alpha:.4f}")
     print(f"Best CV MAE: {best_score:.3f}")
+
+    print(f"\nSaving model...")
 
     # Save pipeline
     os.makedirs(pipeline_to, exist_ok=True)
@@ -146,7 +150,7 @@ def main(training_data, preprocessor, pipeline_to, plot_to, seed):
     params_df.to_csv(os.path.join(pipeline_to, "best_params.csv"), index=False)
     print(f"Saved best parameters to {pipeline_to}/best_params.csv")
 
-    print("Model fitting complete!")
+    print("\nModel fitting complete!")
 
 
 if __name__ == '__main__':

@@ -163,7 +163,7 @@ def main(raw_data, data_to, preprocessor_to, seed):
     student_df = pd.read_csv(raw_data, sep=";")
     print(f"Loaded {len(student_df)} rows")
 
-    print("Validating data against schema...")
+    print("\nValidating data against schema...")
     schema = create_schema()
     schema.validate(student_df, lazy=True)
     print("All validation checks passed!")
@@ -171,7 +171,7 @@ def main(raw_data, data_to, preprocessor_to, seed):
     student_train, student_test = train_test_split(
         student_df, train_size=0.70, random_state=seed
     )
-    print(f"Train set: {len(student_train)} rows")
+    print(f"\nTrain set: {len(student_train)} rows")
     print(f"Test set: {len(student_test)} rows")
 
     os.makedirs(data_to, exist_ok=True)
@@ -192,9 +192,9 @@ def main(raw_data, data_to, preprocessor_to, seed):
     transformed_train.to_csv(os.path.join(data_to, "transformed_student_train.csv"), index=False)
     transformed_test.to_csv(os.path.join(data_to, "transformed_student_test.csv"), index=False)
 
-    print(f"Saved training data to {data_to}")
+    print(f"\nSaved training data to {data_to}")
     print(f"Saved preprocessor to {preprocessor_to}")
-    print("Data preprocessing complete!")
+    print("\nData preprocessing complete!")
 
 
 if __name__ == '__main__':

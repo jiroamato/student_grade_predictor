@@ -1,5 +1,9 @@
-import click
 import os
+import warnings
+os.environ["PYTHONWARNINGS"] = "ignore"
+warnings.filterwarnings('ignore')
+
+import click
 import altair as alt
 import altair_ally as aly
 import pandas as pd
@@ -35,13 +39,13 @@ def main(processed_training_data, plot_to):
     """
     aly.alt.data_transformers.enable('vegafusion')
 
-    print(f"Loading data from {processed_training_data}...")
+    print(f"\nLoading data from {processed_training_data}...")
     student_train = pd.read_csv(processed_training_data)
     print(f"Loaded {len(student_train)} rows")
 
     os.makedirs(plot_to, exist_ok=True)
 
-    print("Creating target distribution plot...")
+    print("\nCreating target distribution plot...")
     target_plot = alt.Chart(student_train[[TARGET]]).mark_bar().encode(
         x=alt.X(TARGET, type='quantitative', bin=alt.Bin(maxbins=30)),
         y='count()'
@@ -53,12 +57,12 @@ def main(processed_training_data, plot_to):
     target_plot.save(os.path.join(plot_to, "target_distribution.png"), scale_factor=2.0)
     print(f"Saved: {plot_to}/target_distribution.png")
 
-    print("Creating correlation heatmap...")
+    print("\nCreating correlation heatmap...")
     corr_plot = aly.corr(student_train.drop(columns=[TARGET]))
     corr_plot.save(os.path.join(plot_to, "correlation_heatmap.png"), scale_factor=2.0)
     print(f"Saved: {plot_to}/correlation_heatmap.png")
 
-    print("EDA complete!")
+    print("\nEDA complete!")
 
 
 if __name__ == '__main__':
