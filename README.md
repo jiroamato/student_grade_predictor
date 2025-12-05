@@ -12,7 +12,7 @@ The dataset used in this project is the Student Performance dataset created by P
 
 ## Report
 
-The final report can be found in the notebooks [here](https://jiroamato.github.io/student_grade_predictor/notebooks/student_grade_predictor_report.html).
+The final report can be found [here](https://jiroamato.github.io/student_grade_predictor/reports/student_grade_predictor_report.html).
 
 ## Dependencies
 - [Docker](https://www.docker.com/) 
@@ -53,7 +53,7 @@ python src/download_data.py \
 python src/preprocess_data.py \
     --raw-data "data/raw/student-por.csv" \
     --data-to "data/processed" \
-    --preprocessor-to "results/models"
+    --preprocessor-to "results/models" \
     --seed 123
 
 # 3. Generate EDA figures
@@ -66,7 +66,7 @@ python src/fit_student_predictor.py \
     --training-data "data/processed/student_train.csv" \
     --preprocessor "results/models/student_preprocessor.pickle" \
     --pipeline-to "results/models" \
-    --plot-to "results/figures"
+    --plot-to "results/figures" \
     --seed 123
 
 # 5. Evaluate model
@@ -74,12 +74,14 @@ python src/evaluate_student_predictor.py \
     --test-data "data/processed/student_test.csv" \
     --pipeline-from "results/models/student_pipeline.pickle" \
     --tables-to "results/tables" \
-    --plot-to "results/figures"
+    --plot-to "results/figures" \
     --seed 123
 
 # 6. Render report
 quarto render reports/student_grade_predictor_report.qmd --to html
 quarto render reports/student_grade_predictor_report.qmd --to pdf
+
+# Or you can preview the report if you do not want to create the rendered files
 
 # 7. Preview report (does not create a new file)
 quarto preview reports/student_grade_predictor_report.qmd
@@ -127,7 +129,7 @@ conda-lock lock -f environment.yml # general conda-lock file
 conda-lock lock -f environment.yml -k explicit # platform specific
 ```
 
-2.  Push the changes into your own branch and create a pull request:
+2.  Push the changes into your own branch and GitHub Actions workflow will automatically build and push the new image:
 
 ``` bash
 git add conda-linux-64.lock conda-lock.yml
@@ -135,11 +137,13 @@ git commit -m "Update conda-linux-64.lock and conda-lock.yml files"
 git push origin <branch_name>
 ```
 
-3.  Once the PR is merged into `main`, GitHub Actions workflow will automatically build and push the new image.
+4.  Update the `docker-compose.yml file on your branch to use the new image (specifically, update the tag).
+
+3.  Send a pull request to merge the changes into the main branch.
 
 ### Running Tests
 
-Tests are run using the pytest command in the root of the project.
+Unit tests are run using the pytest command in the root of the project.
 
 ```bash
 # Run all tests
