@@ -97,7 +97,12 @@ python -m pytest tests/test_download_data.py -v
 docker compose down
 ```
 
-5. To remove the image that was pulled locally, note the image name and tag from `docker-
+5. To remove the image that was pulled locally, note the image name and tag from `docker-compose.yml` and run the following command:
+
+```bash
+docker rmi <image_name:tag>
+```
+
 ### Running Tests
 
 ```bash
@@ -112,8 +117,6 @@ compose.yml` and run the following command:
 ```bash
 docker rmi <image_name:tag>
 ```
-
-
 
 #### For Returning Users
 
