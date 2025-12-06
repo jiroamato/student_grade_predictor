@@ -77,14 +77,8 @@ python src/evaluate_student_predictor.py \
     --plot-to=results/figures \
     --seed=123
 
-# 6. Render report
-quarto render reports/student_grade_predictor_report.qmd --to html
-quarto render reports/student_grade_predictor_report.qmd --to pdf
-
-# Or you can preview the report if you do not want to create the rendered files
-
-# 7. Preview report (does not create a new file)
-quarto preview reports/student_grade_predictor_report.qmd
+# 6. Render report (renders in html and pdf)
+quarto render reports/student_grade_predictor_report.qmd
 ```
 
 4.  To stop the container, press `Ctrl` + `C` in the terminal and run:
