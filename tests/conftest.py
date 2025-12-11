@@ -143,49 +143,6 @@ def sample_raw_df():
         'G2': [11, 13, 9, 16, 5],
         'G3': [12, 14, 10, 17, 4]
     })
-  
-  
-@pytest.fixture
-def mock_pipeline():
-    """
-    Create a mock pipeline for testing model evaluation.
-        Sample DataFrame matching the student dataset schema.
-    """
-    return pd.DataFrame({
-        'school': ['GP', 'GP', 'MS', 'GP', 'MS'],
-        'sex': ['F', 'M', 'F', 'M', 'F'],
-        'age': [18, 17, 16, 18, 19],
-        'address': ['U', 'R', 'U', 'U', 'R'],
-        'famsize': ['GT3', 'LE3', 'GT3', 'GT3', 'LE3'],
-        'Pstatus': ['T', 'T', 'A', 'T', 'T'],
-        'Medu': [4, 2, 3, 4, 1],
-        'Fedu': [4, 2, 3, 4, 1],
-        'Mjob': ['teacher', 'other', 'services', 'health', 'at_home'],
-        'Fjob': ['teacher', 'other', 'services', 'health', 'at_home'],
-        'reason': ['home', 'reputation', 'course', 'other', 'home'],
-        'guardian': ['mother', 'father', 'mother', 'mother', 'other'],
-        'traveltime': [1, 2, 1, 1, 3],
-        'studytime': [2, 3, 2, 4, 1],
-        'failures': [0, 0, 1, 0, 2],
-        'schoolsup': ['no', 'yes', 'no', 'no', 'yes'],
-        'famsup': ['yes', 'no', 'yes', 'yes', 'no'],
-        'paid': ['no', 'no', 'yes', 'no', 'no'],
-        'activities': ['yes', 'no', 'yes', 'yes', 'no'],
-        'nursery': ['yes', 'yes', 'no', 'yes', 'yes'],
-        'higher': ['yes', 'yes', 'yes', 'yes', 'no'],
-        'internet': ['yes', 'no', 'yes', 'yes', 'no'],
-        'romantic': ['no', 'yes', 'no', 'no', 'yes'],
-        'famrel': [4, 3, 4, 5, 2],
-        'freetime': [3, 4, 3, 2, 5],
-        'goout': [3, 2, 4, 3, 5],
-        'Dalc': [1, 2, 1, 1, 3],
-        'Walc': [1, 3, 2, 1, 4],
-        'health': [3, 4, 5, 3, 2],
-        'absences': [4, 2, 10, 0, 25],
-        'G1': [10, 12, 8, 15, 6],
-        'G2': [11, 13, 9, 16, 5],
-        'G3': [12, 14, 10, 17, 4]
-    })
 
 @pytest.fixture
 def mock_preprocessor():
