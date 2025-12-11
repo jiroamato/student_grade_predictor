@@ -78,7 +78,7 @@ We also examined the distribution of our target variable to understand the grade
 
 ![Distribution of the target variable (G3) showing final grade frequencies.](../results/figures/target_distribution.png){#fig-target-distribution width=70%}
 
-To optimize model performance, we tuned the regularization parameter alpha using 10-fold cross-validation (@fig-alpha). The optimal alpha value was found to be `{python} f"{best_params['best_alpha'][0]:.3f}"`, which balanced the trade-off between model complexity and generalization ability while yielding the minimum MAE of `{python} test_scores_df['MAE'][0]`.
+To optimize model performance, we tuned the regularization parameter alpha using 10-fold cross-validation (@fig-alpha). The optimal alpha value was found to be `{python} f"{best_params['best_alpha'][0]:.3f}"`, which balanced the trade-off between model complexity and generalization ability while yielding the minimum cross-validation MAE of `{python} f"{best_params['best_cv_mae'][0]:.3f}"`.
 
 ![Hyperparameter Tuning of Alpha.](../results/figures/student_tune_alpha.png){#fig-alpha width=70%}
 
@@ -95,7 +95,7 @@ To better understand prediction accuracy across the grade spectrum, we examined 
 
 ![Residual analysis showing prediction errors across the range of predicted values.](../results/figures/prediction_error.png){#fig-residuals width=60%}
 
-Examination of model coefficients revealed that G2 and G1 (second and first period grades) were by far the strongest predictors of final grades (@tbl-top-coefficients). This finding is intuitive—students who perform well early in the term tend to continue performing well. Among other features, past failures contributed the most negatively to predicted grades, while study time and parental education showed modest positive effects.
+Examination of model coefficients revealed that G2 and G1 (second and first period grades) were by far the strongest predictors of final grades (@tbl-top-coefficients). This finding is intuitive—students who perform well early in the term tend to continue performing well. Among other features, past failures (failures) contributed the most negatively to predicted grades, while the reason for choosing the school because of its courses (reason_course) and choosing the school for other reasons (reason_other) showed modest positive and negative effects respectively.
 
 {{< pagebreak >}}
 ```{python}
