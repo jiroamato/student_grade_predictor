@@ -70,7 +70,7 @@ A linear regression model with Ridge regularization was used to predict the fina
 
 # Results & Discussion
 
-To understand the predictive power of our features, we examined correlations between all predictors and the target variable (@fig-correlation-heatmap). Prior assessment grades (G1 and G2) showed the strongest correlation with final grades, which aligns with educational research suggesting past performance is the most reliable predictor of future outcomes. Other notable correlations included study time and parental education levels, though these effects were considerably smaller.
+To understand the predictive power of our features, we examined correlations between all predictors and the target variable (@fig-correlation-heatmap). Prior assessment grades (G1 and G2) showed the strongest correlation with final grades, which aligns with educational research suggesting past performance is the most reliable predictor of future outcomes. Other notable correlations included past failures (failures), study time (studytime) and parental education levels (Fedu and Medu), though these correlations were considerably smaller.
 
 ![Pairwise correlations between all features in the dataset.](../results/figures/correlation_heatmap.png){#fig-correlation-heatmap width=90%}
 
