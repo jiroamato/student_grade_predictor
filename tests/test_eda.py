@@ -35,6 +35,7 @@ class TestMain:
         mock_alt_chart = MagicMock()
         mock_alt_chart.mark_bar.return_value = mock_alt_chart
         mock_alt_chart.encode.return_value = mock_alt_chart
+        mock_alt_chart.transform_calculate.return_value = mock_alt_chart
         mock_alt_chart.properties.return_value = mock_alt_chart
         mock_alt_chart.save = MagicMock()
         mocker.patch('src.eda.alt.Chart', return_value=mock_alt_chart)
@@ -88,6 +89,7 @@ class TestMain:
         mock_alt_chart = MagicMock()
         mock_alt_chart.mark_bar.return_value = mock_alt_chart
         mock_alt_chart.encode.return_value = mock_alt_chart
+        mock_alt_chart.transform_calculate.return_value = mock_alt_chart
         mock_alt_chart.properties.return_value = mock_alt_chart
         mock_alt_chart.save = track_save
         mocker.patch('src.eda.alt.Chart', return_value=mock_alt_chart)
@@ -131,6 +133,7 @@ class TestMain:
         mock_alt_chart = MagicMock()
         mock_alt_chart.mark_bar.return_value = mock_alt_chart
         mock_alt_chart.encode.return_value = mock_alt_chart
+        mock_alt_chart.transform_calculate.return_value = mock_alt_chart
         mock_alt_chart.properties.return_value = mock_alt_chart
         mock_alt_chart.save = MagicMock()
         mocker.patch('src.eda.alt.Chart', return_value=mock_alt_chart)
