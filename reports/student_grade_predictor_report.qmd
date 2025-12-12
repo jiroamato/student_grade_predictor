@@ -50,7 +50,7 @@ top_coefficients_df = top_coefficients_df.rename(columns={"Unnamed: 0": "Feature
 
 # Summary
 
-We built a linear regression model utilizing Ridge Regression to predict a student's final grade (G3) in a Portuguese language course using demographic data, behavioural insights, and previous assessment scores. Our final model achieved strong performance on unseen test data, with an R² score of `{python} test_scores_df['R2'][0]` and a Mean Absolute Error (MAE) of `{python} test_scores_df['MAE'][0]`. On average, model predictions deviated from actual grades by less than one grade point on the 0-20 scale, indicating a high level of accuracy. Although the model demonstrated reliability in predicting grades within the passing range (scores exceeding 8), residual analysis revealed reduced precision for students with lower scores or those receiving a zero, frequently overestimating their performance. Given this limitation concerning failing students, we conclude that this model showcases adequate performance to serve as a decision-support tool for educators to project final grades midway through the term.
+We built a linear regression model utilizing Ridge Regression to predict a student's final grade (G3) in a Portuguese language course using demographic data, behavioural insights, and previous assessment scores. Our final model achieved strong performance on unseen test data, with an R² score of `{python} test_scores_df['R2'][0]` and a Mean Absolute Error (MAE) of `{python} test_scores_df['MAE'][0]`. On average, model predictions deviated from actual grades by less than one grade point on the 0-20 scale, indicating a high level of accuracy. Although the model demonstrated reliability in predicting grades within the passing range (scores exceeding 10), residual analysis revealed reduced precision for students with lower scores or those receiving a zero, frequently overestimating their performance. Given this limitation concerning failing students, we conclude that this model showcases adequate performance to serve as a decision-support tool for educators to project final grades midway through the term.
 
 # Introduction
 
@@ -70,7 +70,7 @@ A linear regression model with Ridge regularization was used to predict the fina
 
 # Results & Discussion
 
-To understand the predictive power of our features, we examined correlations between all predictors and the target variable (@fig-correlation-heatmap). Prior assessment grades (G1 and G2) showed the strongest correlation with final grades, which aligns with educational research suggesting past performance is the most reliable predictor of future outcomes. Other notable correlations included study time and parental education levels, though these effects were considerably smaller.
+To understand the predictive power of our features, we examined correlations between all predictors and the target variable (@fig-correlation-heatmap). Prior assessment grades (G1 and G2) showed the strongest correlation with final grades, which aligns with educational research suggesting past performance is the most reliable predictor of future outcomes. Other notable correlations included past failures (failures), study time (studytime) and parental education levels (Fedu and Medu), though these correlations were considerably smaller.
 
 ![Pairwise correlations between all features in the dataset.](../results/figures/correlation_heatmap.png){#fig-correlation-heatmap width=90%}
 
@@ -78,7 +78,7 @@ We also examined the distribution of our target variable to understand the grade
 
 ![Distribution of the target variable (G3) showing final grade frequencies.](../results/figures/target_distribution.png){#fig-target-distribution width=70%}
 
-To optimize model performance, we tuned the regularization parameter alpha using 10-fold cross-validation (@fig-alpha). The optimal alpha value was found to be `{python} f"{best_params['best_alpha'][0]:.3f}"`, which balanced the trade-off between model complexity and generalization ability while yielding the minimum MAE of `{python} test_scores_df['MAE'][0]`.
+To optimize model performance, we tuned the regularization parameter alpha using 10-fold cross-validation (@fig-alpha). The optimal alpha value was found to be `{python} f"{best_params['best_alpha'][0]:.3f}"`, which balanced the trade-off between model complexity and generalization ability while yielding the minimum cross-validation MAE of `{python} f"{best_params['best_cv_mae'][0]:.3f}"`.
 
 ![Hyperparameter Tuning of Alpha.](../results/figures/student_tune_alpha.png){#fig-alpha width=70%}
 
@@ -95,7 +95,7 @@ To better understand prediction accuracy across the grade spectrum, we examined 
 
 ![Residual analysis showing prediction errors across the range of predicted values.](../results/figures/prediction_error.png){#fig-residuals width=60%}
 
-Examination of model coefficients revealed that G2 and G1 (second and first period grades) were by far the strongest predictors of final grades (@tbl-top-coefficients). This finding is intuitive—students who perform well early in the term tend to continue performing well. Among other features, past failures contributed the most negatively to predicted grades, while study time and parental education showed modest positive effects.
+Examination of model coefficients revealed that G2 and G1 (second and first period grades) were by far the strongest predictors of final grades (@tbl-top-coefficients). This finding is intuitive—students who perform well early in the term tend to continue performing well. Among other features, past failures (failures) contributed the most negatively to predicted grades, while the reason for choosing the school because of its courses (reason_course) and choosing the school for other reasons (reason_other) showed modest positive and negative effects respectively.
 
 {{< pagebreak >}}
 ```{python}

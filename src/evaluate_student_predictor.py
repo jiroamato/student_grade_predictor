@@ -96,7 +96,7 @@ def main(test_data, pipeline_from, tables_to, plot_to, seed):
         data=final_model_pipe.best_estimator_.named_steps['ridge'].coef_,
         index=feature_names,
         columns=['Coefficient']
-    ).sort_values(by='Coefficient', ascending=False).head(5)
+    ).sort_values(by='Coefficient', key=abs, ascending=False).head(5)
     ridge_coeffs.to_csv(os.path.join(tables_to, "top_coefficients.csv"))
     print(f"Saved top 5 coefficients to {tables_to}/top_coefficients.csv")
 

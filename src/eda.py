@@ -10,6 +10,7 @@ import pandas as pd
 
 
 TARGET = "G3"
+PASSING_GRADE = 10
 
 @click.command()
 @click.option('--processed-training-data', type=str, help="Path to processed training data")
@@ -48,7 +49,16 @@ def main(processed_training_data, plot_to):
     print("\nCreating target distribution plot...")
     target_plot = alt.Chart(student_train[[TARGET]]).mark_bar().encode(
         x=alt.X(TARGET, type='quantitative', bin=alt.Bin(maxbins=30)),
-        y='count()'
+        y=alt.Y('count()', scale=alt.Scale(domain=[0, 80])),
+        color=alt.Color(
+            "Grade:N",
+            scale=alt.Scale(
+                domain=["Pass", "Fail"],
+                range=["steelblue", "firebrick"]
+            )
+        )
+    ).transform_calculate(
+        Grade=alt.expr.if_(alt.datum[TARGET] >= PASSING_GRADE, "Pass", "Fail")
     ).properties(
         title="Distribution of the target feature (G3)",
         width=400,

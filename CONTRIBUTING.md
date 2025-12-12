@@ -7,9 +7,6 @@ This outlines how to propose a change to the Student Grade Predictor project.
 Small typos or grammatical errors in documentation may be edited directly using
 the GitHub web interface, so long as the changes are made in the _source_ file.
 
-*  YES: you edit a roxygen comment in a `.R` file below `R/`.
-*  NO: you edit an `.Rd` file below `man/`.
-
 ### Prerequisites
 
 Before you make a substantial pull request, you should always file an issue and
@@ -20,7 +17,7 @@ bug, create an associated issue and illustrate the bug with a minimal
 ### Pull request process
 
 *  We recommend that you create a Git branch for each pull request (PR).  
-*  New code should follow the tidyverse [style guide](http://style.tidyverse.org) or PEP8 [style guide](https://www.python.org/dev/peps/pep-0008/).
+*  New code should follow PEP8 [style guide](https://www.python.org/dev/peps/pep-0008/) or the Black Code [style](https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html) which is a subset of PEP8.
 
 ### Code of Conduct
 
